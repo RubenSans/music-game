@@ -47,5 +47,17 @@
 
 .ReactPiano__NoteLabel{
     padding-bottom: 20px;
-    font-size: 18px;
+    font-size: clamp(0.2rem, 0.8rem, 1.2rem);
+}
+
+@media screen and (max-width: 768px) {
+    .ReactPiano__NoteLabel {
+        padding-bottom: 5px;
+    }
+    
+}
+
+.ReactPiano__NoteLabel--natural.ReactPiano__NoteLabel--active,
+.ReactPiano__NoteLabel--natural.ReactPiano__NoteLabel {
+    color: #000;
 }

@@ -22,19 +22,15 @@ export default function App() {
 
   return (
     <div className='min-h-screen grid place-content-center'>
-      <div className="my-box">
+      {/* <div className="my-box">
         <BasicPiano className="MyPiano" />
-      </div>
-{/* 
-      <div className="mt-5">
-        <p>
-          Responsive piano which resizes to containers width. Try resizing the
-          window!
-        </p>
-        <ResponsivePiano />
+      </div> */}
+
+      <div className="my-box">
+        <ResponsivePiano className="MyPiano" />
       </div>
 
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <p>Piano with custom styling - see styles.css</p>
         <ResponsivePiano className="MyPiano" />
       </div>  */}
@@ -72,7 +68,7 @@ function ResponsivePiano(props) {
       render={({ isLoading, playNote, stopNote }) => (
         <Piano
           noteRange={noteRange}
-          width={window.innerWidth}
+          width={window.innerWidth / 1.5}
           playNote={playNote}
           stopNote={stopNote}
           disabled={isLoading}
