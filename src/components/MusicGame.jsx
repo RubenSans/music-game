@@ -2,26 +2,30 @@ import * as tone from "../utils/tone";
 
 export const MusicGame = () => {
 
+    const keys = tone.keys;
+
     window.addEventListener("keydown", tone.handlePressKey);
 
+    window.addEventListener("keydown", (event) => {
+        const key = document.querySelector(`button[data-key="${event.key.toUpperCase()}"]`);
+        if (key) {
+            const classToAdd = key.classList.contains('my-shadow-white') ? 'white-active' : 'black-active';
+            key.classList.add(classToAdd);
+            setTimeout(() => {
+                key.classList.remove(classToAdd);
+            }, 200);
+        }
+    });    
+
     return (
-        <div className="flex align-center justify-center">
-            {/* <h2 className="text-center">Music Game</h2> */}
-            <div className="flex justify-center">
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playC4}>C4</button>
-                <button className="bg-black text-white w-[60px] h-[250px] -mx-[30px] z-10" onClick={tone.playDb4}>Db4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playD4}>D4</button>
-                <button className="bg-black text-white w-[60px] h-[250px] -mx-[30px] z-10" onClick={tone.playEb4}>Eb4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playE4}>E4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playF4}>F4</button>
-                <button className="bg-black text-white w-[60px] h-[250px] -mx-[30px] z-10" onClick={tone.playGb4}>Gb4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playG4}>G4</button>
-                <button className="bg-black text-white w-[60px] h-[250px] -mx-[30px] z-10" onClick={tone.playAb4}>Ab4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playA4}>A4</button>
-                <button className="bg-black text-white w-[60px] h-[250px] -mx-[30px] z-10" onClick={tone.playBb4}>Bb4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playB4}>B4</button>
-                <button className="bg-white border border-black w-[100px] h-[400px]" onClick={tone.playC5}>C5</button>
-            </div>
+        <div className="flex my-box relative max-h-[30em]">
+            {keys.map((key, index) => {
+            return (
+                <div key={index} className="flex">
+                    <button id="btnKey" data-key={key.key} className={key.note.includes('b') ? 'text-white my-shadow-black w-[60px] h-[250px] -mx-[30px] z-10' : 'border-l border-b border-solid border-[#bbb] my-shadow-white w-[100px] h-[400px]'} onClick={()=> tone.playNote(key.note)}>{key.key}</button>                
+                </div>
+            );
+            })}
         </div>
     );
 };

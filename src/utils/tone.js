@@ -1,112 +1,29 @@
 import * as Tone from 'tone';
 
-export function playC4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("C4", "8n");
-}
+export const keys = [
+    { note: 'C4', key: 'A' },
+    { note: 'Db4', key: 'W' },
+    { note: 'D4', key: 'S' },
+    { note: 'Eb4', key: 'E' },
+    { note: 'E4', key: 'D' },
+    { note: 'F4', key: 'F' },
+    { note: 'Gb4', key: 'T' },
+    { note: 'G4', key: 'G' },
+    { note: 'Ab4', key: 'Y' },
+    { note: 'A4', key: 'H' },
+    { note: 'Bb4', key: 'U' },
+    { note: 'B4', key: 'J' },
+    { note: 'C5', key: 'K' }
+];
 
-export function playDb4() {
+export function playNote(note) {
     const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("Db4", "8n");
-}
-
-export function playD4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("D4", "8n");
-}
-
-export function playEb4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("Eb4", "8n");
-}
-
-export function playE4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("E4", "8n");
-}
-
-export function playF4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("F4", "8n");
-}
-
-export function playGb4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("Gb4", "8n");
-}
-
-export function playG4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("G4", "8n");
-}
-
-export function playAb4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("Ab4", "8n");
-}
-
-export function playA4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("A4", "8n");
-}
-
-export function playBb4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("Bb4", "8n");
-}
-
-export function playB4() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("B4", "8n");
-}
-
-export function playC5() {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("C5", "8n");
+    synth.triggerAttackRelease(note, "8n");
 }
 
 export function handlePressKey(event) {
-    switch (event.key.toLowerCase()) {
-        case 'a':
-            playC4();
-            break;
-        case 'w':
-            playDb4();
-            break;
-        case 's':
-            playD4();
-            break;
-        case 'e':
-            playEb4();
-            break;
-        case 'd':
-            playE4();
-            break;
-        case 'f':
-            playF4();
-            break;
-        case 't':
-            playGb4();
-            break;
-        case 'g':
-            playG4();
-            break;
-        case 'y':
-            playAb4();
-            break;
-        case 'h':
-            playA4();
-            break;
-        case 'u':
-            playBb4();
-            break;
-        case 'j':
-            playB4();
-            break;
-        case 'k':
-            playC5();
-            break;
-        default:
-            break;
+    const noteToPlay = keys.find(item => item.key.toLowerCase() === event.key.toLowerCase());
+    if (noteToPlay) {
+        playNote(noteToPlay.note);
     }
 }
