@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 
+.p-key {
+    font-size: 50px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s;
+}
+
 .my-box {
     /* padding: 4em 4em 0 4em; */
     border:1px solid #160801;
@@ -11,6 +23,7 @@
     box-shadow:0 0 50px rgba(0,0,0,0.5) inset,0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5);
     display: grid;
     place-content: center;
+    margin-top: -100px
 }
 
 .MyPiano .ReactPiano__Key--accidental {
