@@ -77,7 +77,7 @@ document.addEventListener('keydown', function(event) {
             console.log('Game Over');
             gameOver = true;
             btnStart.disabled = false;
-            display.textContent = 'Game Over! Your score is: ' + score + ' points';
+            display.textContent = 'Game Over! Your score is: ' + score + ' points. Press F5 to play again.';
 
             userNotes.length = 0;
             randomNotes.length = 0;
