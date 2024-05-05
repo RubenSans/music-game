@@ -119,7 +119,7 @@ export function handlePlayNote() {
         initRandomNotes();
     }
 
-    btnStart.disabled = true;
+    // btnStart.disabled = true;
 
     if (time === 0) {
         intervalTime = setInterval(function() {
