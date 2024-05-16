@@ -12,7 +12,7 @@ export let score = 0;
 export let time = 0;
 let intervalTime;
 let userTurn = false;
-let gameOver = false;
+export let gameOver = false;
 
 window.onload = function() {
     initRandomNotes();
@@ -82,7 +82,7 @@ document.addEventListener('keydown', function(event) {
             userNotes.length = 0;
             randomNotes.length = 0;
 
-            clearInterval(intervalTime);            
+            clearInterval(intervalTime);
         }
 
         // console.log('User: ', userNotes.length, 'Random: ', randomNotes.length);
