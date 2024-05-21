@@ -28,7 +28,6 @@ export function MusicGame(props) {
 
     const params = new URLSearchParams(window.location.search);
     const user_id = params.get('user_id');
-    console.log(user_id);
     
     useEffect(() => {
       let interval = setInterval(() => {
@@ -50,6 +49,7 @@ export function MusicGame(props) {
         const response = await axios.post('http://127.0.0.1:8000/api/game-results', {
           score: gameScore,
           user_id: user_id,
+          time: gameTime,
         });
         console.log('Resultado guardado:', response.data.message);
       } catch (error) {
